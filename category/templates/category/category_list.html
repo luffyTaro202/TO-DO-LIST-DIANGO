@@ -1,0 +1,15 @@
+{% extends './base.html' %} {% block content %}
+<h1>Category List</h1>
+{% for category in category_list %}
+
+<div class="card-body card mb-3">
+  <h3>
+    <a href="{% url 'category:category_detail' category.pk %}">{{ category.name }}</a>
+  </h3>
+
+</div>
+{% empty %}
+<p>No categories available.</p>
+{% endfor %}
+<a href="{% url 'category:category_create' %}">Create New Category</a>
+{% endblock %}
